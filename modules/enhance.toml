@@ -1,0 +1,137 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
+on_cmd = 'DeinUpdate'
+
+# [[plugins]]
+# repo = 'roxma/nvim-yarp'
+# on_if = '!has("nvim")'
+# [[plugins]]
+# repo = 'roxma/vim-hug-neovim-rpc'
+# on_if = '!has("nvim")'
+
+[[plugins]]
+repo = 'andymass/vim-matchup'
+on_event = ['BufReadPre','BufNewFile']
+
+
+# [[plugins]]
+# repo = 'voldikss/vim-floaterm'
+# on_cmd = ['FloatermNew', 'FloatermToggle', 'FloatermPrev', 'FloatermNext', 'FloatermSend']
+# hook_source= '''
+# let g:floaterm_position = 'center'
+# let g:floaterm_wintype = 'floating'
+
+# " Set floaterm window's background to black
+# hi Floaterm guibg=black
+# " Set floating window border line color to cyan, and background to orange
+# hi FloatermBorder guibg=none guifg=cyan
+# '''
+
+
+[[plugins]] # 关闭buffer而不关闭窗口
+repo = 'rbgrouleff/bclose.vim'
+on_map = 'Bclose'
+
+[[plugins]]
+repo = 'lukas-reineke/indent-blankline.nvim'
+if = 'has("nvim")'
+on_event = ['BufReadPre', 'BufNewFile']
+hook_source = '''
+    let g:indent_blankline_char = '│'
+    set colorcolumn=99999
+    let g:indent_blankline_filetype_exclude = ['denite','startify','tagbar',
+        \ 'vista_kind','vista','coc-explorer','dashboard', 'json','jsonc']
+'''
+
+[[plugins]] #注释
+repo = 'tyru/caw.vim'
+depends = 'context_filetype.vim'
+on_map = { nx = '<Plug>' }
+
+[[plugins]] # 函数表
+repo = 'liuchengxu/vista.vim'
+on_cmd = ['Vista', 'Vista!', 'Vista!!']
+hook_source = '''
+    source $VIM_PATH/config/vista.vim
+'''
+
+
+[[plugins]] #tags
+repo = 'ludovicchabant/vim-gutentags'
+if = 'executable("ctags")'
+on_event = ['BufReadPost', 'BufWritePost']
+hook_source = '''
+let g:gutentags_cache_dir = $DATA_PATH . '/tags'
+let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project','go.mod']
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_new = 0
+let g:gutentags_exclude_filetypes = [ 'defx', 'denite', 'vista', 'magit' ]
+let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
+let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', '*.dart', 'node_modules', 'dist', 'vendor']
+'''
+# [[plugins]] #格式化
+# repo = 'Chiel92/vim-autoformat'
+# on_cmd = 'Autoformat'
+# hook_source = '''
+# autocmd FileType vim,tex let b:autoformat_autoindent=0
+# '''
+[[plugins]] # 格式代码
+repo = 'sbdchd/neoformat'
+on_cmd = 'Neoformat'
+# hook_source = '''
+# let g:neoformat_tex_latexindent = {
+# \ 'exe': 'latexindent',
+# \ 'args': ['-l'],
+# \ 'stdin': 1
+# \ }
+# '''
+[[plugins]] # 对齐
+repo = 'junegunn/vim-easy-align'
+on_map = '<Plug>(EasyAlign)'
+
+
+# [[plugins]]
+# repo = 'liuchengxu/vim-clap'
+# merged = 0
+# build = 'bash install.sh'
+# on_map = { n = '<Plug>' }
+# hook_source = '''
+# source $VIM_PATH/config/clap.vim
+# '''
+# [[plugins]]
+# repo = 'vn-ki/coc-clap'
+# on_source = 'vim-clap'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+if = 'has("nvim")'
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+if = 'has("nvim")'
+on_cmd = 'Telescope'
+hook_source = '''
+lua << EOF
+require('telescope').setup({
+    defaults = {
+        prompt_prefix = "🔍"
+    },
+})
+EOF
+'''
+
+[[plugins]]
+repo = 'Yggdroot/LeaderF'
+build = ':LeaderfInstallCExtension'
+on_cmd = 'Leaderf'
+if = '!has("nvim")'
+hook_source = '''
+    let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2"  }
+    let g:Lf_CacheDirectory = $DATA_PATH
+    let g:Lf_StlColorscheme = 'gruvbox_material'
+'''
+[[plugins]]
+repo = 'Freed-Wu/LeaderF-keymaps'
+on_source = 'LeaderF'

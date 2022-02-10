@@ -1,0 +1,53 @@
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+# [[pluings]]
+# repo = 'krisfans/vim-cpp-enhanced-highlight'
+# on_ft = ['c','cpp']
+# [[pluings]]
+# repo = 'jackguo380/vim-lsp-cxx-highlight'
+# on_ft = ['c','cpp']
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+hook_source = '''
+    source $VIM_PATH/config/vimtex.vim
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build ='sh -c "cd app && npm install"'
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+hook_add = '''
+let g:vim_markdown_folding_level = 3
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_auto_insert_bullets = 1
+let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_edit_url_in = 'vsplit'
+let g:vim_markdown_fenced_languages = [
+    \ 'c++=cpp',
+    \ 'viml=vim',
+    \ 'bash=sh',
+    \ 'ini=dosini',
+    \ 'js=javascript',
+    \ 'json=javascript',
+    \ 'jsx=javascriptreact',
+    \ 'tsx=typescriptreact',
+    \ 'docker=Dockerfile',
+    \ 'makefile=make',
+    \ 'py=python'
+    \ ]
+'''
+

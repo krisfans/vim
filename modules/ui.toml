@@ -1,0 +1,126 @@
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+if = 'has("nvim")'
+on_event = ['BufReadPre','BufNewFile']
+hook_add = '''
+    set termguicolors
+'''
+
+[[plugins]] # 图标
+repo = 'lambdalisue/nerdfont.vim'
+if = '!has("nvim")'
+on_event = ['BufReadPre','BufNewFile']
+hook_add = '''
+    set termguicolors
+'''
+
+# 主题
+[[plugins]]
+repo = 'mhartington/oceanic-next'
+[[plugins]] # 耗时2ms
+repo = 'lifepillar/vim-gruvbox8'
+hook_source = '''
+    let g:gruvbox_italics = 0
+'''
+[[plugins]]
+repo = 'hardcoreplayers/oceanic-material'
+
+[[plugins]] # 耗时15ms
+repo = 'krisfans/vim-monokai'
+hook_source = '''
+    let g:monokai_term_italic = 0
+    let g:monokai_gui_italic = 0
+'''
+
+
+[[plugins]]
+repo = 'bagrat/vim-buffet'
+depends = 'nerdfont.vim'
+# on_event = ['BufReadPre','BufNewFile']
+hook_add = '''
+    let g:buffet_show_index = 1
+    let g:buffet_powerline_separators = 1
+    let g:buffet_use_devicons = 1
+    let g:buffet_left_trunc_icon = "\uf0a8"
+    let g:buffet_right_trunc_icon = "\uf0a9"
+    " Note: Make sure the function is defined before `vim-buffet` is loaded.
+    function! g:BuffetSetCustomColors()
+        " hi! BuffetTab cterm=NONE ctermbg=117 ctermfg=238 guibg=#8ac6f2 guifg=#444444
+        " hi! BuffetCurrentBuffer cterm=NONE ctermbg=119 ctermfg=8 guibg=#95e454 guifg=#000000
+        hi! BuffetTab cterm=NONE ctermbg=117 ctermfg=238 guibg=#a89984 guifg=#282828
+        hi! BuffetCurrentBuffer cterm=NONE ctermbg=119 ctermfg=8 guibg=#b8bb26 guifg=#282828
+    endfunction
+'''
+# #
+# # gruvbox
+#   # black        = '#282828',
+#   # white        = '#ebdbb2',
+#   # red          = '#fb4934',
+#   # green        = '#b8bb26',
+#   # blue         = '#83a598',
+#   # yellow       = '#fe8019',
+#   # gray         = '#a89984',
+#   # darkgray     = '#3c3836',
+#   # lightgray    = '#504945',
+#   # inactivegray = '#7c6f64',
+# # [[plugins]]
+# # repo = 'vim-airline/vim-airline'
+# # on_event = ['BufReadPre','BufNewFile']
+# # hook_add = '''
+
+# #   let g:airline_powerline_fonts = 1
+# #   let g:airline#extensions#vista#enabled = 0
+# # '''
+
+[[plugins]]
+repo = 'krisfans/lightline.vim'
+# on_event = ['BufReadPre','BufNewFile']
+depends = 'nerdfont.vim'
+hook_source = '''
+    source $VIM_PATH/config/lightline.vim
+'''
+hook_post_source = '''
+function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . nerdfont#find() : 'no ft') : ''
+endfunction
+function! MyFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . nerdfont#fileformat#find()) : ''
+endfunction
+'''
+
+# [[plugins]] # defx 文件树
+# repo = 'Shougo/defx.nvim'
+# on_cmd = 'Defx'
+# hook_source = '''
+#     source $VIM_PATH/config/defx.vim
+# '''
+# [[plugins]] # defx 文件树图标
+# repo = 'kristijanhusak/defx-icons'
+# on_source = 'defx.nvim'
+# hook_add = '''
+#     let g:defx_icons_column_length = 2
+#     let g:defx_icons_mark_icon = ''
+#     let g:defx_icons_default_icon = ''
+# '''
+# [[plugins]] # defx git
+# repo = 'kristijanhusak/defx-git'
+# on_source = 'defx.nvim'
+
+
+
+[[plugins]] # Fern文件树
+repo = 'lambdalisue/fern.vim'
+on_cmd = 'Fern'
+hook_source = '''
+    source $VIM_PATH/config/fern.vim
+'''
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+on_source = 'fern.vim'
+depends = 'nerdfont.vim'
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+on_source = 'fern.vim'
+[[plugins]] # Fern git
+repo = 'lambdalisue/fern-git-status.vim'
+depends = 'fern.vim'

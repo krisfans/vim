@@ -1,0 +1,103 @@
+{
+    "suggest.timeout": 500,
+    "suggest.noselect": false,
+    "suggest.triggerCompletionWait": 50,
+    "suggest.echodocSupport": true,
+    "suggest.completionItemKindLabels": {
+        // "keyword": "",
+        "keyword": "",
+        "variable": "𝒙",
+        "value": "",
+        "operator": "",
+        "function": "",
+        "reference": "",
+        "constant": "",
+        // "method": "",
+        "method": "",
+        "struct": "פּ",
+        "class": "",
+        "interface": "",
+        "text": "ﭨ",
+        "enum": "",
+        "enumMember": "",
+        "module": "",
+        "color": "",
+        "property": "",
+        "field": "",
+        "unit": "",
+        "event": "ﮦ",
+        "file": "",
+        "folder": "",
+        "snippet": "",
+        "typeParameter": "",
+        "default": ""
+    },
+    "yank.highlight.enable":true,
+    //pairs
+    // "pairs.enableCharacters": [
+    //     "(",
+    //     "[",
+    //     "{",
+    //     "'",
+    //     "\"",
+    //     "`"
+    // ],
+    //diagnostic
+    // "diagnostic.messageTarget": "echo",
+    // "diagnostic.virtualText": true,
+    // "diagnostic.virtualTextPrefix": "➤ ",
+    "diagnostic.errorSign": "✗",
+    "diagnostic.warningSign": "⚡",
+    "diagnostic.infoSign": "●",
+    "diagnostic.displayByAle": false,
+    "diagnostic.refreshOnInsertMode": true,
+    //python
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    //Snippet
+    "snippets.userSnippetsDirectory": "~/.vim/snips",
+    "coc.preferences.snippetStatusText": "Ⓢ ",
+    //CocList
+    "list.source.files.defaultOptions": [
+        "--auto-preview"
+    ],
+    "list.source.outline.defaultOptions": [
+        "--auto-preview"
+    ],
+    //sessions
+    "session.directory": "~/.cache/vim/session",
+    // coc-explorer
+    "explorer.icon.expanded": "▾",
+    "explorer.icon.collapsed": "▸",
+    "explorer.width": 30,
+    "explorer.icon.enableNerdfont": true,
+    // "explorer.icon.source":"nerdfont.vim",
+    // "explorer.icon.source": "nvim-web-devicons",
+    "explorer.quitOnOpen": false,
+    "explorer.floating.width": -20,
+    "explorer.floating.height": -10,
+    "explorer.openAction.strategy": "sourceWindow",
+    "explorer.keyMappings.global": {
+        ".": "toggleHidden",
+        "<cr>": [
+            "wait",
+            "expandable?",
+            [
+                "wait",
+                "expanded?",
+                "collapse",
+                "expand"
+            ],
+            "open"
+        ],
+        "n": "addFile",
+        "N": "addDirectory",
+        "l": "cd",
+        "D": "delete"
+    },
+    //coc-clangd
+    "semanticTokens.filetypes": ["c","cpp"],
+    "clangd.fallbackFlags": [
+        "-lm"
+    ]
+}

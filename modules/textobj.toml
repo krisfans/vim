@@ -1,0 +1,19 @@
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+on_map = { vonx = '<Plug>(operator-sandwich-' }
+hook_add = '''
+    let g:sandwich_no_default_key_mappings = 1
+    let g:operator_sandwich_no_default_key_mappings = 1
+    let g:textobj_sandwich_no_default_key_mappings = 1
+'''
+
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+on_map = { n = '<Plug>Splitjoin' }
+
+[[plugins]]
+repo = 'AndrewRadev/dsf.vim'
+on_map = { n = '<Plug>Dsf' }
+hook_add = '''
+    let g:dsf_no_mappings = 1
+'''
