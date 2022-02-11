@@ -225,11 +225,11 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 " viminfo 来定义如何保存会话（session）信息，
 " 就是保存Vim的操作记录和状态信息，以用于重启Vim后能恢复之前的操作状态。
-if has('nvim') && ! has('win32') && ! has('win64')
-    set shada=!,'300,<50,@100,s10,h
-else
-    set viminfo='300,<10,@50,h,n$DATA_PATH/viminfo
-endif
+" if has('nvim') && ! has('win32') && ! has('win64')
+"     set shada=!,'300,<50,@100,s10,h
+" else
+"     set viminfo='300,<10,@50,h,n$DATA_PATH/viminfo
+" endif
 
 augroup user_persistent_undo
     autocmd!

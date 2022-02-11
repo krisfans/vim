@@ -8,7 +8,6 @@ hook_add = '''
 
 [[plugins]] # 图标
 repo = 'lambdalisue/nerdfont.vim'
-if = '!has("nvim")'
 on_event = ['BufReadPre','BufNewFile']
 hook_add = '''
     set termguicolors
@@ -34,7 +33,7 @@ hook_source = '''
 
 
 [[plugins]]
-repo = 'bagrat/vim-buffet'
+repo = 'krisfans/vim-buffet'
 depends = 'nerdfont.vim'
 # on_event = ['BufReadPre','BufNewFile']
 hook_add = '''
@@ -87,24 +86,6 @@ function! MyFileformat()
     return winwidth(0) > 70 ? (&fileformat . ' ' . nerdfont#fileformat#find()) : ''
 endfunction
 '''
-
-# [[plugins]] # defx 文件树
-# repo = 'Shougo/defx.nvim'
-# on_cmd = 'Defx'
-# hook_source = '''
-#     source $VIM_PATH/config/defx.vim
-# '''
-# [[plugins]] # defx 文件树图标
-# repo = 'kristijanhusak/defx-icons'
-# on_source = 'defx.nvim'
-# hook_add = '''
-#     let g:defx_icons_column_length = 2
-#     let g:defx_icons_mark_icon = ''
-#     let g:defx_icons_default_icon = ''
-# '''
-# [[plugins]] # defx git
-# repo = 'kristijanhusak/defx-git'
-# on_source = 'defx.nvim'
 
 
 

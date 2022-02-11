@@ -4,12 +4,6 @@ repo = 'Shougo/dein.vim'
 repo = 'wsdjeg/dein-ui.vim'
 on_cmd = 'DeinUpdate'
 
-# [[plugins]]
-# repo = 'roxma/nvim-yarp'
-# on_if = '!has("nvim")'
-# [[plugins]]
-# repo = 'roxma/vim-hug-neovim-rpc'
-# on_if = '!has("nvim")'
 
 [[plugins]]
 repo = 'andymass/vim-matchup'
@@ -111,6 +105,7 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
 if = 'has("nvim")'
+depends = 'nvim-web-devicons'
 on_cmd = 'Telescope'
 hook_source = '''
 lua << EOF
@@ -131,6 +126,7 @@ hook_source = '''
     let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2"  }
     let g:Lf_CacheDirectory = $DATA_PATH
     let g:Lf_StlColorscheme = 'gruvbox_material'
+    let g:Lf_DefaultMode = 'Regex'
 '''
 [[plugins]]
 repo = 'Freed-Wu/LeaderF-keymaps'

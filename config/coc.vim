@@ -13,7 +13,8 @@ let g:coc_global_extensions =[
     \ 'coc-vimlsp',
     \ 'coc-pyright',
     \ 'coc-toml',
-    \ 'coc-explorer'
+    \ 'coc-explorer',
+    \ 'coc-yank',
     \ ]
 let g:coc_default_semantic_highlight_groups = 1
 augroup coc_event
@@ -26,8 +27,8 @@ augroup end
 
 " Highlight symbol under cursor on CursorHold
 if dein#tap('coc.nvim')
+    call coc#config('snippets.userSnippetsDirectory', '$VIM_PATH/snips')
     autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " 刷新补全列表
     " autocmd TextChangedI * silent call coc#refresh()
     " autocmd CursorMovedI * silent call coc#refresh()
@@ -56,3 +57,5 @@ nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 nmap <leader>s :CocCommand snippets.editSnippets<cr>
 " Use :Format for format current buffer
 command! -nargs=0 Format :call CocAction('format')
+
+
