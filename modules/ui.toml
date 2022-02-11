@@ -1,4 +1,4 @@
-[[plugins]]
+[[plugins]] # 图标
 repo = 'kyazdani42/nvim-web-devicons'
 if = 'has("nvim")'
 on_event = ['BufReadPre','BufNewFile']
@@ -13,8 +13,7 @@ hook_add = '''
     set termguicolors
 '''
 
-# 主题
-[[plugins]]
+[[plugins]] # 主题
 repo = 'mhartington/oceanic-next'
 [[plugins]] # 耗时2ms
 repo = 'lifepillar/vim-gruvbox8'
@@ -32,7 +31,7 @@ hook_source = '''
 '''
 
 
-[[plugins]]
+[[plugins]] #tab line
 repo = 'krisfans/vim-buffet'
 depends = 'nerdfont.vim'
 # on_event = ['BufReadPre','BufNewFile']
@@ -71,7 +70,7 @@ hook_add = '''
 # #   let g:airline#extensions#vista#enabled = 0
 # # '''
 
-[[plugins]]
+[[plugins]] # 状态栏
 repo = 'krisfans/lightline.vim'
 # on_event = ['BufReadPre','BufNewFile']
 depends = 'nerdfont.vim'
