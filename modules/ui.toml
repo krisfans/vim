@@ -1,15 +1,12 @@
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 if = 'has("nvim")'
-on_event = ['BufReadPre','BufNewFile']
 hook_add = '''
     set termguicolors
 '''
 
 [[plugins]] # 图标
 repo = 'lambdalisue/nerdfont.vim'
-if = '!has("nvim")'
-on_event = ['BufReadPre','BufNewFile']
 hook_add = '''
     set termguicolors
 '''
@@ -34,10 +31,10 @@ hook_source = '''
 
 
 [[plugins]]
-repo = 'bagrat/vim-buffet'
-depends = 'nerdfont.vim'
+repo = 'krisfans/vim-buffet'
+# depends = 'nerdfont.vim'
 # on_event = ['BufReadPre','BufNewFile']
-hook_add = '''
+hook_source = '''
     let g:buffet_show_index = 1
     let g:buffet_powerline_separators = 1
     let g:buffet_use_devicons = 1

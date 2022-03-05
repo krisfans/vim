@@ -104,7 +104,9 @@ on_map = '<Plug>(EasyAlign)'
 # [[plugins]]
 # repo = 'vn-ki/coc-clap'
 # on_source = 'vim-clap'
-
+[[plugins]]
+repo = 'dstein64/vim-startuptime'
+on_cmd = 'StartupTime'
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 if = 'has("nvim")'
