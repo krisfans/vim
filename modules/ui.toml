@@ -1,4 +1,4 @@
-[[plugins]]
+[[plugins]] # 图标
 repo = 'kyazdani42/nvim-web-devicons'
 if = 'has("nvim")'
 hook_add = '''
@@ -7,12 +7,15 @@ hook_add = '''
 
 [[plugins]] # 图标
 repo = 'lambdalisue/nerdfont.vim'
+<<<<<<< HEAD
+=======
+on_event = ['BufReadPre','BufNewFile']
+>>>>>>> origin/master
 hook_add = '''
     set termguicolors
 '''
 
-# 主题
-[[plugins]]
+[[plugins]] # 主题
 repo = 'mhartington/oceanic-next'
 [[plugins]] # 耗时2ms
 repo = 'lifepillar/vim-gruvbox8'
@@ -30,9 +33,15 @@ hook_source = '''
 '''
 
 
+<<<<<<< HEAD
 [[plugins]]
 repo = 'krisfans/vim-buffet'
 # depends = 'nerdfont.vim'
+=======
+[[plugins]] #tab line
+repo = 'krisfans/vim-buffet'
+depends = 'nerdfont.vim'
+>>>>>>> origin/master
 # on_event = ['BufReadPre','BufNewFile']
 hook_source = '''
     let g:buffet_show_index = 1
@@ -69,7 +78,7 @@ hook_source = '''
 # #   let g:airline#extensions#vista#enabled = 0
 # # '''
 
-[[plugins]]
+[[plugins]] # 状态栏
 repo = 'krisfans/lightline.vim'
 # on_event = ['BufReadPre','BufNewFile']
 depends = 'nerdfont.vim'
@@ -84,24 +93,6 @@ function! MyFileformat()
     return winwidth(0) > 70 ? (&fileformat . ' ' . nerdfont#fileformat#find()) : ''
 endfunction
 '''
-
-# [[plugins]] # defx 文件树
-# repo = 'Shougo/defx.nvim'
-# on_cmd = 'Defx'
-# hook_source = '''
-#     source $VIM_PATH/config/defx.vim
-# '''
-# [[plugins]] # defx 文件树图标
-# repo = 'kristijanhusak/defx-icons'
-# on_source = 'defx.nvim'
-# hook_add = '''
-#     let g:defx_icons_column_length = 2
-#     let g:defx_icons_mark_icon = ''
-#     let g:defx_icons_default_icon = ''
-# '''
-# [[plugins]] # defx git
-# repo = 'kristijanhusak/defx-git'
-# on_source = 'defx.nvim'
 
 
 

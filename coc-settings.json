@@ -55,8 +55,8 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     //Snippet
-    "snippets.userSnippetsDirectory": "~/.vim/snips",
-    "coc.preferences.snippetStatusText": "Ⓢ ",
+    // "snippets.userSnippetsDirectory": "~/.vim/snips",
+    // "coc.preferences.snippetStatusText": "Ⓢ ",
     //CocList
     "list.source.files.defaultOptions": [
         "--auto-preview"
@@ -65,7 +65,7 @@
         "--auto-preview"
     ],
     //sessions
-    "session.directory": "~/.cache/vim/session",
+    // "session.directory": "~/.cache/vim/session",
     // coc-explorer
     "explorer.icon.expanded": "▾",
     "explorer.icon.collapsed": "▸",
