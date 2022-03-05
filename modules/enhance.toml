@@ -99,7 +99,7 @@ repo = 'junegunn/vim-easy-align'
 on_map = '<Plug>(EasyAlign)'
 
 
-# [[plugins]]
+# [[plugins]] # clap 模糊搜索
 # repo = 'liuchengxu/vim-clap'
 # merged = 0
 # build = 'bash install.sh'
@@ -110,24 +110,21 @@ on_map = '<Plug>(EasyAlign)'
 # [[plugins]]
 # repo = 'vn-ki/coc-clap'
 # on_source = 'vim-clap'
-<<<<<<< HEAD
-[[plugins]]
+[[plugins]] # 查看启动时间
 repo = 'dstein64/vim-startuptime'
 on_cmd = 'StartupTime'
-[[plugins]]
-=======
 
-[[plugins]] # telescope 模糊搜索
->>>>>>> origin/master
+[[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 if = 'has("nvim")'
-[[plugins]]
+[[plugins]] # telescope 模糊搜索
 repo = 'nvim-telescope/telescope.nvim'
 if = 'has("nvim")'
 depends = 'nvim-web-devicons'
 on_cmd = 'Telescope'
 hook_source = '''
 lua << EOF
+require'telescope'.load_extension('mru')
 require('telescope').setup({
     defaults = {
         prompt_prefix = "🔍"
@@ -135,18 +132,20 @@ require('telescope').setup({
 })
 EOF
 '''
+[[plugins]]
+repo = 'alan-w-255/telescope-mru.nvim'
+on_source = 'telescope.nvim'
+[[plugins]]
+repo = 'yegappan/mru'
+hook_source = '''
+let g:MRU_File = $DATA_PATH . '/vim_mru_files'
+'''
 
 [[plugins]] # leaderf 模糊搜索
 repo = 'Yggdroot/LeaderF'
-build = ':LeaderfInstallCExtension'
-on_cmd = 'Leaderf'
-if = '!has("nvim")'
+hook_post_update = ':LeaderfInstallCExtension'
 hook_source = '''
-    let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2"  }
-    let g:Lf_CacheDirectory = $DATA_PATH
-    let g:Lf_StlColorscheme = 'gruvbox_material'
-    let g:Lf_DefaultMode = 'Regex'
+let g:Lf_StlColorscheme = 'gruvbox_material'
+let g:Lf_CacheDirectory = $DATA_PATH
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" }
 '''
-[[plugins]]
-repo = 'Freed-Wu/LeaderF-keymaps'
-on_source = 'LeaderF'
