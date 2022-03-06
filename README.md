@@ -2,7 +2,10 @@
 
 我的一nvim配置
 my vimrc for nvim
-
+## 特征
+结构化nvim/vim配置，启动时间不超过50ms(取决与电脑环境)
+## 使用
+`git clone https://github.com/krisfans/vim.git ~/.config/nvim`
 ## 目录结构
 ```
 ├── README.md
