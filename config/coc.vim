@@ -27,7 +27,7 @@ augroup end
 
 " Highlight symbol under cursor on CursorHold
 if dein#tap('coc.nvim')
-    call coc#config('session.directory', '$VIM_PATH/session')
+    " call coc#config('session.directory', '$DATA_PATH/session')
     call coc#config('snippets.userSnippetsDirectory', '$VIM_PATH/snips')
     autocmd CursorHold * silent call CocActionAsync('highlight')
 " 刷新补全列表

@@ -65,7 +65,7 @@
         "--auto-preview"
     ],
     //sessions
-    // "session.directory": "~/.cache/vim/session",
+    "session.directory": "~/.cache/nvim/session",
     // coc-explorer
     "explorer.icon.expanded": "▾",
     "explorer.icon.collapsed": "▸",
