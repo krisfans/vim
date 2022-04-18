@@ -50,4 +50,10 @@ let g:vim_markdown_fenced_languages = [
     \ 'py=python'
     \ ]
 '''
-
+[[plugins]]
+repo = 'neoclide/jsonc.vim'
+# on_ft = ['json','jsonc']
+on_event = ['BufReadPre', 'BufNewFile']
+# [[plugins]]
+# repo = 'kevinoid/vim-jsonc'
+# on_event = ['BufReadPre', 'BufNewFile']

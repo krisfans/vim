@@ -12,7 +12,13 @@ on_event = ['BufReadPre','BufNewFile']
 hook_add = '''
     set termguicolors
 '''
-
+# [[plugins]] # 颜色
+# repo = 'norcalli/nvim-colorizer.lua'
+# on_event = ['BufReadPre','BufNewFile']
+# hook_add = 'set termguicolors'
+# hook_source = '''
+#     lua require'colorizer'.setup()
+# '''
 [[plugins]] # 主题
 repo = 'mhartington/oceanic-next'
 [[plugins]] # 耗时2ms

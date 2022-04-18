@@ -147,5 +147,6 @@ hook_post_update = ':LeaderfInstallCExtension'
 hook_source = '''
 let g:Lf_StlColorscheme = 'gruvbox_material'
 let g:Lf_CacheDirectory = $DATA_PATH
-let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" }
+let g:Lf_StlSeparator = { 'left': "", 'right': "" }
 '''
+

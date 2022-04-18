@@ -26,14 +26,19 @@
         "field": "",
         "unit": "",
         "event": "ﮦ",
-        "file": "",
+        "file": "",
         "folder": "",
         "snippet": "",
         "typeParameter": "",
         "default": ""
     },
-    "yank.highlight.enable":true,
-    //pairs
+    // coc-yank
+    "yank.highlight.enable": true,
+    // coc-highlight
+    "colors.filetypes": [
+        "*"
+    ],
+    // coc-pairs
     // "pairs.enableCharacters": [
     //     "(",
     //     "[",
@@ -71,6 +76,14 @@
     "explorer.icon.collapsed": "▸",
     "explorer.width": 30,
     "explorer.icon.enableNerdfont": true,
+    "explorer.icon.customIcons": {
+        "icons": {
+            "file": {
+                "code": "",
+                "color": "#6d8086"
+            }
+        }
+    },
     // "explorer.icon.source":"nerdfont.vim",
     // "explorer.icon.source": "nvim-web-devicons",
     "explorer.quitOnOpen": false,
@@ -96,7 +109,10 @@
         "D": "delete"
     },
     //coc-clangd
-    "semanticTokens.filetypes": ["c","cpp"],
+    "semanticTokens.filetypes": [
+        "c",
+        "cpp"
+    ],
     "clangd.fallbackFlags": [
         "-lm"
     ]

@@ -44,8 +44,8 @@ augroup common " {{{
     autocmd BufWritePre * call initself#mkdir_as_necessary(expand('<afile>:p:h'), v:cmdbang)
 
 
-    autocmd BufNewFile,BufRead coc-settings.json setlocal filetype=jsonc
-    autocmd FileType json,jsonc syntax match Comment +\/\/.\+$+
+    " autocmd BufNewFile,BufRead coc-settings.json setlocal filetype=jsonc
+    " autocmd FileType json,jsonc syntax match Comment +\/\/.\+$+
     autocmd BufRead,BufNewFile *.tex setlocal filetype=tex
 
     " autocmd TextYankPost * silent!  lua vim.highlight.on_yank{higroup="IncSearch", timeout=500}
