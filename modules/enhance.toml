@@ -50,11 +50,33 @@ hook_source = '''
     let g:indent_blankline_filetype_exclude = ['denite','startify','tagbar',
         \ 'vista_kind','vista','coc-explorer','dashboard', 'json','jsonc']
 '''
+[[plugins]]
+repo = 'numToStr/Comment.nvim'
+# on_map = { nx = '<Plug>' }
+hook_source = '''
+    lua require('Comment').setup()
+'''
 
-[[plugins]] #注释
-repo = 'tyru/caw.vim'
-depends = 'context_filetype.vim'
-on_map = { nx = '<Plug>' }
+# [[plugins]] #注释
+# repo = 'tyru/caw.vim'
+# depends = ['context_filetype.vim', 'nvim-treesitter']
+# on_map = { nx = '<Plug>' }
+# hook_source = '''
+# lua << EOF
+# function M.has_syntax(lnum, col)
+#   local bufnr = vim.api.nvim_get_current_buf()
+#   for _, capture in pairs(vim.treesitter.get_captures_at_pos(bufnr, lnum - 1, col - 1)) do
+#       for _, cap in pairs(capture) do
+#           if string.match(cap, 'comment') then
+#               return true
+#           end
+#       end
+#   end
+#
+#   return false
+# end
+# EOF
+# '''
 
 [[plugins]] # 函数表
 repo = 'liuchengxu/vista.vim'
@@ -87,13 +109,18 @@ let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.
 [[plugins]] # 格式代码
 repo = 'sbdchd/neoformat'
 on_cmd = 'Neoformat'
-# hook_source = '''
-# let g:neoformat_tex_latexindent = {
-# \ 'exe': 'latexindent',
-# \ 'args': ['-l'],
-# \ 'stdin': 1
-# \ }
-# '''
+hook_source = '''
+" let g:neoformat_tex_latexindent = {
+" \ 'exe': 'latexindent',
+" \ 'args': ['-l'],
+" \ 'stdin': 1
+" \ }
+let g:neoformat_c_clangformat = {
+\ 'exe': 'clang-format',
+\ 'args': ['-style=file', '-assume-filename=' . expand('%:t'), expand('%')],
+\ 'stdin': 1,
+\ }
+'''
 [[plugins]] # 对齐
 repo = 'junegunn/vim-easy-align'
 on_map = '<Plug>(EasyAlign)'

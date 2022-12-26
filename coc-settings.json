@@ -2,7 +2,6 @@
     "suggest.timeout": 500,
     "suggest.noselect": false,
     "suggest.triggerCompletionWait": 50,
-    "suggest.echodocSupport": true,
     "suggest.completionItemKindLabels": {
         // "keyword": "",
         "keyword": "",
@@ -34,10 +33,6 @@
     },
     // coc-yank
     "yank.highlight.enable": true,
-    // coc-highlight
-    "colors.filetypes": [
-        "*"
-    ],
     // coc-pairs
     // "pairs.enableCharacters": [
     //     "(",
@@ -63,12 +58,6 @@
     // "snippets.userSnippetsDirectory": "~/.vim/snips",
     // "coc.preferences.snippetStatusText": "Ⓢ ",
     //CocList
-    "list.source.files.defaultOptions": [
-        "--auto-preview"
-    ],
-    "list.source.outline.defaultOptions": [
-        "--auto-preview"
-    ],
     //sessions
     "session.directory": "~/.cache/nvim/session",
     // coc-explorer
