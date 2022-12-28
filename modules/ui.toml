@@ -15,6 +15,7 @@ hook_add = '''
 '''
 [[plugins]] # 颜色
 repo = 'norcalli/nvim-colorizer.lua'
+if = 'has("nvim")'
 on_event = ['BufReadPre','BufNewFile']
 hook_add = 'set termguicolors'
 hook_source = '''

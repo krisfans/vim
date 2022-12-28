@@ -97,7 +97,7 @@ function! s:use_dein()
     endif
 
     " Initialize dein.vim (package manager)
-    if dein#load_state(l:cache_path)
+    if dein#min#load_state(l:cache_path)
 
         " Start propagating file paths and plugin presets
         call dein#begin(l:cache_path, extend([expand('<sfile>')], s:modules_config_paths))

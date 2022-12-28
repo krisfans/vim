@@ -13,8 +13,8 @@ set hidden                   " hide buffers when abandoned instead of unload
 set fileformats=unix,dos,mac " 文件格式
 set magic                    " 正则查找
 set synmaxcol=2500           " 不高亮语法高亮过长的行
-set novisualbell             " 错误响铃，不闪烁
-" set noeb vb t_vb=          " 错误不响铃，不闪烁
+" set novisualbell             " 错误响铃，不闪烁
+set noeb vb t_vb=            " 错误不响铃，不闪烁
 
 " set autochdir " 自动设当前编辑的文件所在目录为当前工作路径,
 " 这样defx无法工作
@@ -46,12 +46,19 @@ if executable('cmd.exe') && has('unix')
 else
     set clipboard=unnamed,unnamedplus
 endif
-
+if !has('nvim')
+    let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+    if executable(s:clip)
+        augroup WSLYank
+            autocmd!
+            autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+        augroup END
+    endif
+endif
 " 命令行补全以增强模式运行 {{{
 if has('wildmenu')
-    if !has('nvim')
-        set wildmode=list:longest
-    endif
+    set wildmenu
+    set wildoptions=pum
 
     set wildignorecase
     set wildignore+=.git,.hg,.svn,.stversions,*.pyc,*.spl,*.o,*.out,*~,%*
@@ -88,7 +95,7 @@ set tabstop=4  softtabstop=4 shiftwidth=4
 set cindent             " 按照C语言的形式缩进
 " 时间
 set timeout ttimeout    " 按键超时 {{{
-set updatetime=100      " Idle time to write swap and trigger CursorHold
+set updatetime=200      " Idle time to write swap and trigger CursorHold
 set redrawtime=1500     " Time in milliseconds for stopping display redraw
 
 
@@ -149,7 +156,7 @@ set showcmd            " Show command in status line
 set cmdheight=1        " Height of the command line
 set cmdwinheight=5     " Command-line lines
 set noruler            " 禁用默认的ruler
-set shortmess=aFcI      " 短
+set shortmess=aFcI     " 短
 set fillchars+=vert:\| " add a bar for vertical splits
 set fcs=eob:\          " 隐藏 ~ tila
 set list               " 字符
@@ -166,7 +173,7 @@ set title
 " set winwidth=30       " Minimum width for active window
 " set winminwidth=10    " Minimum width for inactive windows
 set winheight=4         " Minimum height for active window
-set winminheight=1  " Minimum height for inactive window
+set winminheight=1      " Minimum height for inactive window
 set pumheight=15        " Pop-up menu's line height
 set helpheight=12       " Minimum help window height
 set previewheight=12    " Completion preview height
@@ -182,10 +189,10 @@ endif
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+    " Recently vim can merge signcolumn and number column into one
+    set signcolumn=number
 else
-  set signcolumn=yes
+    set signcolumn=yes
 endif
 
 " if has('conceal') && v:version >= 703
@@ -260,13 +267,14 @@ augroup user_secure
                 \ /tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim
                 \ setlocal noswapfile noundofile nobackup nowritebackup viminfo= shada=
 augroup END
+" vim 光标形状
 if !has("nvim")
-  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
-  au InsertEnter,InsertChange *
-    \ if v:insertmode == 'i' |
-    \   silent execute '!echo -ne "\e[6 q"' | redraw! |
-    \ elseif v:insertmode == 'r' |
-    \   silent execute '!echo -ne "\e[4 q"' | redraw! |
-    \ endif
-  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+    au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
+    au InsertEnter,InsertChange *
+                \ if v:insertmode == 'i' |
+                \   silent execute '!echo -ne "\e[6 q"' | redraw! |
+                \ elseif v:insertmode == 'r' |
+                \   silent execute '!echo -ne "\e[4 q"' | redraw! |
+                \ endif
+    au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif

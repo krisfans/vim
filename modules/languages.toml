@@ -19,10 +19,10 @@ hook_source = '''
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
-[[plugins]]
-repo = 'iamcco/markdown-preview.nvim'
-on_ft = ['markdown', 'pandoc.markdown', 'rmd']
-build ='sh -c "cd app && npm install"'
+# [[plugins]]
+# repo = 'iamcco/markdown-preview.nvim'
+# on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+# build ='sh -c "cd app && npm install"'
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'

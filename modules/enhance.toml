@@ -52,6 +52,7 @@ hook_source = '''
 '''
 [[plugins]]
 repo = 'numToStr/Comment.nvim'
+if = 'has("nvim")'
 # on_map = { nx = '<Plug>' }
 hook_source = '''
 lua << EOF
@@ -84,26 +85,14 @@ lua << EOF
 EOF
 '''
 
-# [[plugins]] #注释
-# repo = 'tyru/caw.vim'
-# depends = ['context_filetype.vim', 'nvim-treesitter']
-# on_map = { nx = '<Plug>' }
-# hook_source = '''
-# lua << EOF
-# function M.has_syntax(lnum, col)
-#   local bufnr = vim.api.nvim_get_current_buf()
-#   for _, capture in pairs(vim.treesitter.get_captures_at_pos(bufnr, lnum - 1, col - 1)) do
-#       for _, cap in pairs(capture) do
-#           if string.match(cap, 'comment') then
-#               return true
-#           end
-#       end
-#   end
-#
-#   return false
-# end
-# EOF
-# '''
+[[plugins]] #注释
+repo = 'tyru/caw.vim'
+if = '! has("nvim")'
+depends = ['context_filetype.vim']
+on_map = { nx = '<Plug>' }
+hook_source = '''
+
+'''
 
 [[plugins]] # 函数表
 repo = 'liuchengxu/vista.vim'
