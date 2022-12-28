@@ -56,7 +56,7 @@ endif
 " nnoremap <silent> <Leader>cS  :Clap coc_services<CR>
 " nnoremap <silent> <leader>ct  :Clap coc_outline<CR>
 if has("nvim") && dein#tap("telescope.nvim")
-    nnoremap <silent> <leader>fh :<C-u>Telescope oldfiles<CR>
+    nnoremap <silent> <leader>fh :<C-u>Telescope mru<CR>
     nnoremap <silent> <leader>fc :<C-u>Telescope colorscheme<CR>
     nnoremap <silent> <leader>fb :<C-u>Telescope buffers<CR>
     nnoremap <silent> <leader>fg <cmd>Telescope live_grep<cr>
@@ -71,7 +71,7 @@ endif
 
 
 
-" 注释 ---------------------
+" " 注释 ---------------------
 " function! InitCaw() abort
 "     if ! (&l:modifiable && &buftype ==# '')
 "         silent! nunmap <buffer> <leader>/
@@ -82,19 +82,19 @@ endif
 "     endif
 " endfunction
 " autocmd FileType * call InitCaw()
-
-
-" 注释 ---------------------
-function! InitComment_nvim() abort
-    if ! (&l:modifiable && &buftype ==# '')
-        silent! nunmap <buffer> <leader>/
-        silent! xunmap <buffer> <leader>/
-    else
-        nmap  <leader>/ <Plug>(comment_toggle_linewise)
-        xmap  <leader>/ <Plug>(comment_toggle_linewise)
-    endif
-endfunction
-autocmd FileType * call InitComment_nvim()
+"
+"
+" " 注释 ---------------------
+" function! InitComment_nvim() abort
+"     if ! (&l:modifiable && &buftype ==# '')
+"         silent! nunmap <buffer> <leader>/
+"         silent! xunmap <buffer> <leader>/
+"     else
+"         nmap  <leader>/ <Plug>(comment_toggle_linewise)
+"         xmap  <leader>/ <Plug>(comment_toggle_linewise)
+"     endif
+" endfunction
+" autocmd FileType * call InitComment_nvim()
 
 
 

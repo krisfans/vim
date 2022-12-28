@@ -54,7 +54,34 @@ hook_source = '''
 repo = 'numToStr/Comment.nvim'
 # on_map = { nx = '<Plug>' }
 hook_source = '''
-    lua require('Comment').setup()
+lua << EOF
+    require('Comment').setup({
+        ignore = '^$',
+        toggler = {
+            line = 'gcc',
+            block = 'gbc',
+        },
+        opleader = {
+            line = 'gcc',
+            block = 'gbc',
+            },
+        ---LHS of extra mappings
+        extra = {
+            ---Add comment on the line above
+            above = 'gcO',
+            ---Add comment on the line below
+            below = 'gco',
+            ---Add comment at the end of line
+            eol = 'gcA',
+        },
+        mappings = {
+            ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+            basic = true,
+            ---Extra mapping; `gco`, `gcO`, `gcA`
+            extra = true,
+        },
+    })
+EOF
 '''
 
 # [[plugins]] #注释
