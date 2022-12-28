@@ -102,7 +102,7 @@ function! InitCaw() abort
     endif
 endfunction
 autocmd FileType * call InitCaw()
-endif
+
  '''
 
 [[plugins]] # 函数表
