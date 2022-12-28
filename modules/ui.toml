@@ -6,19 +6,20 @@ hook_add = '''
     set termguicolors
 '''
 
+
 [[plugins]] # 图标
 repo = 'lambdalisue/nerdfont.vim'
 on_event = ['BufReadPre','BufNewFile']
 hook_add = '''
     set termguicolors
 '''
-# [[plugins]] # 颜色
-# repo = 'norcalli/nvim-colorizer.lua'
-# on_event = ['BufReadPre','BufNewFile']
-# hook_add = 'set termguicolors'
-# hook_source = '''
-#     lua require'colorizer'.setup()
-# '''
+[[plugins]] # 颜色
+repo = 'norcalli/nvim-colorizer.lua'
+on_event = ['BufReadPre','BufNewFile']
+hook_add = 'set termguicolors'
+hook_source = '''
+    lua require'colorizer'.setup()
+'''
 [[plugins]] # 主题
 repo = 'mhartington/oceanic-next'
 [[plugins]] # 耗时2ms
@@ -78,7 +79,7 @@ hook_source = '''
 [[plugins]] # 状态栏
 repo = 'krisfans/lightline.vim'
 # on_event = ['BufReadPre','BufNewFile']
-depends = 'nerdfont.vim'
+depends = ['nerdfont.vim']
 hook_source = '''
     source $VIM_PATH/config/lightline.vim
 '''
@@ -90,7 +91,6 @@ function! MyFileformat()
     return winwidth(0) > 70 ? (&fileformat . ' ' . nerdfont#fileformat#find()) : ''
 endfunction
 '''
-
 
 
 [[plugins]] # Fern文件树
