@@ -75,7 +75,7 @@
             }
         }
     },
-    "explorer.icon.source":"nerdfont.vim",
+    // "explorer.icon.source":"nerdfont.vim",
     // "explorer.icon.source": "nvim-web-devicons",
     "explorer.quitOnOpen": false,
     "explorer.floating.width": -20,

@@ -71,33 +71,6 @@ endif
 
 
 
-" " 注释 ---------------------
-" function! InitCaw() abort
-"     if ! (&l:modifiable && &buftype ==# '')
-"         silent! nunmap <buffer> <leader>/
-"         silent! xunmap <buffer> <leader>/
-"     else
-"         nmap <buffer> <leader>/ <Plug>(caw:hatpos:toggle)
-"         xmap <buffer> <leader>/ <Plug>(caw:hatpos:toggle)
-"     endif
-" endfunction
-" autocmd FileType * call InitCaw()
-"
-"
-" " 注释 ---------------------
-" function! InitComment_nvim() abort
-"     if ! (&l:modifiable && &buftype ==# '')
-"         silent! nunmap <buffer> <leader>/
-"         silent! xunmap <buffer> <leader>/
-"     else
-"         nmap  <leader>/ <Plug>(comment_toggle_linewise)
-"         xmap  <leader>/ <Plug>(comment_toggle_linewise)
-"     endif
-" endfunction
-" autocmd FileType * call InitComment_nvim()
-
-
-
 nmap dsf <Plug>DsfDelete
 nmap csf <Plug>DsfChange
 

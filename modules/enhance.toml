@@ -53,6 +53,7 @@ hook_source = '''
 [[plugins]]
 repo = 'numToStr/Comment.nvim'
 if = 'has("nvim")'
+on_event = ['BufReadPre', 'BufNewFile']
 # on_map = { nx = '<Plug>' }
 hook_source = '''
 lua << EOF
@@ -87,12 +88,22 @@ EOF
 
 [[plugins]] #注释
 repo = 'tyru/caw.vim'
-if = '! has("nvim")'
+if = '!has("nvim")'
 depends = ['context_filetype.vim']
 on_map = { nx = '<Plug>' }
-hook_source = '''
-
-'''
+hook_add = '''
+function! InitCaw() abort
+    if ! (&l:modifiable && &buftype ==# '')
+        silent! nunmap <buffer> gcc
+        silent! xunmap <buffer> gcc
+    else
+        nmap <buffer> gcc <Plug>(caw:hatpos:toggle)
+        xmap <buffer> gcc <Plug>(caw:hatpos:toggle)
+    endif
+endfunction
+autocmd FileType * call InitCaw()
+endif
+ '''
 
 [[plugins]] # 函数表
 repo = 'liuchengxu/vista.vim'

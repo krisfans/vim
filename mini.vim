@@ -28,7 +28,6 @@ if dein#min#load_state(s:dein_dir)
     " call dein#add('neovim/nvim-lspconfig')
     call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
     call dein#add('honza/vim-snippets')
-
     " if has('nvim')
     " call dein#add('nvim-treesitter/nvim-treesitter')
     " endif
