@@ -43,6 +43,8 @@
     //     "`"
     // ],
     //diagnostic
+    // "diagnostic.virtualTextCurrentLineOnly": true,
+    // "diagnostic.messageLevel": "information",
     // "diagnostic.messageTarget": "echo",
     // "diagnostic.virtualText": true,
     // "diagnostic.virtualTextPrefix": "➤ ",
