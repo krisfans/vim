@@ -30,7 +30,7 @@ function! s:fern_local_init() abort
     nmap <buffer><nowait> p <Plug>(fern-action-clipboard-paste)
     nmap <buffer><nowait> D <Plug>(fern-action-remove)
     nmap <buffer><nowait> q :q<cr>
-    nmap <buffer><nowait> r <Plug>(fern-action-rename:select)
+    nmap <buffer><nowait> r <Plug>(fern-action-rename)
     nmap <buffer><nowait> yp <Plug>(fern-action-yank:path)
 
 endfunction

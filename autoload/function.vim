@@ -31,7 +31,9 @@ function! function#RunResult() abort " 先保存，再格式化，最后运行�
         set splitbelow
         if &filetype == 'c'
             :!clang "%" -std=c99 -lm -O2 -o "%<"
-            :sp
+            if has('nvim')
+                :sp
+            endif
             :term   "%:p:r"  && rm "%:p:r"
             " exec "new +resize10 term://   "%:p:r"  && rm %:p:r"
             " exec "!rm  "%:p:r" "
@@ -46,7 +48,7 @@ function! function#RunResult() abort " 先保存，再格式化，最后运行�
         elseif &filetype == 'python'
             :sp
             :term  python3 -u "%"
-        " elseif &filetype == 'markdown'
+            " elseif &filetype == 'markdown'
             " :InstantMarkdownPreview
         elseif &filetype == 'tex'
             silent! exec "VimtexStop"

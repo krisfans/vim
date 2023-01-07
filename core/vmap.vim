@@ -44,10 +44,9 @@ cnoremap <C-d> <Del>
 cnoremap <C-h> <BS>
 cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
 
-tnoremap jk <C-\><C-n>
 
 nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :qa<CR>
+nnoremap <leader>Q :q!<CR>
 
 
 "switch window
@@ -79,3 +78,6 @@ map <C-b> :call function#RunResult()<CR>
 imap <C-b> <ESC>:call function#RunResult()<CR>
 vmap <C-b> <ESC>:call function#RunResult()<CR>
 
+" terminal
+tnoremap jk <C-\><C-n>:q<CR>
+nnoremap <M-T> :let $DIR=expand('%:p:h')<CR>:cd $DIR<CR>:split<CR>:terminal<CR>

@@ -33,7 +33,7 @@ on_event = ['BufReadPre','BufNewFile']
 # hi Floaterm guibg=black
 # " Set floating window border line color to cyan, and background to orange
 # hi FloatermBorder guibg=none guifg=cyan
-# '''
+# # '''
 
 
 [[plugins]] # 关闭buffer而不关闭窗口
@@ -136,17 +136,34 @@ let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.
 [[plugins]] # 格式代码
 repo = 'sbdchd/neoformat'
 on_cmd = 'Neoformat'
+hook_add = '''
+    nnoremap <F> :Neoformat<cr>
+'''
 hook_source = '''
 " let g:neoformat_tex_latexindent = {
 " \ 'exe': 'latexindent',
 " \ 'args': ['-l'],
 " \ 'stdin': 1
 " \ }
+let g:neoformat_basic_format_align = 1
 let g:neoformat_c_clangformat = {
 \ 'exe': 'clang-format',
-\ 'args': ['-style=file', '-assume-filename=' . expand('%:t'), expand('%')],
+\ 'args': ['-style=file',  '"%:p"'],
 \ 'stdin': 1,
 \ }
+let g:neoformat_jsonc_denofmt = {
+\ 'exe': 'deno',
+\ 'args': ['fmt', '--options-indent-width=4' , '"%:p"'],
+\ 'stdin': 0,
+\ 'replace': 0,
+\ }
+let g:neoformat_json_denofmt = {
+\ 'exe': 'deno',
+\ 'args': ['fmt', '--options-indent-width=4' , '"%:p"'],
+\ 'stdin': 0,
+\ 'replace': 0,
+\ }
+
 '''
 [[plugins]] # 对齐
 repo = 'junegunn/vim-easy-align'
