@@ -45,10 +45,13 @@ repo = 'lukas-reineke/indent-blankline.nvim'
 if = 'has("nvim")'
 on_event = ['BufReadPre', 'BufNewFile']
 hook_source = '''
-    let g:indent_blankline_char = '│'
-    set colorcolumn=99999
-    let g:indent_blankline_filetype_exclude = ['denite','startify','tagbar',
-        \ 'vista_kind','vista','coc-explorer','dashboard', 'json','jsonc']
+lua << EOF
+require("ibl").setup()
+    -- let g:indent_blankline_char = '│'
+    -- set colorcolumn=99999
+    -- let g:indent_blankline_filetype_exclude = ['denite','startify','tagbar',
+    --    \ 'vista_kind','vista','coc-explorer','dashboard', 'json','jsonc']
+EOF
 '''
 [[plugins]]
 repo = 'numToStr/Comment.nvim'

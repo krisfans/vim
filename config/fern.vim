@@ -1,6 +1,15 @@
 let g:fern#renderer = "nerdfont"
 let g:fern#renderer#nerdfont#leading = "  "
 let g:nerdfont#default = ''
+let g:nerdfont#path#extension#customs = {
+      \ 'toml': '',
+      \ 'yaml': '',
+      \ 'md': ''
+      \}
+let g:nerdfont#path#basename#customs = {
+      \ 'README.md': '',
+      \ 'Makefile': ''
+      \}
 function! s:fern_local_init() abort
     nmap <buffer>
         \ <Plug>(fern-action-expand)

@@ -100,11 +100,9 @@
         "D": "delete"
     },
     //coc-clangd
-    "semanticTokens.filetypes": [
-        "c",
-        "cpp"
-    ],
+    "semanticTokens.enable": true,
     "clangd.fallbackFlags": [
         "-lm"
-    ]
+    ],
+    "snippets.ultisnips.pythonPrompt": false
 }
